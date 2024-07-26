@@ -2,8 +2,7 @@ package pl.devfoundry.testing;
 
 import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AccountTest {
@@ -15,6 +14,7 @@ class AccountTest {
 
         //then
         assertFalse(newAccount.isActive(), "Check if new account is not active");
+        assertThat(newAccount.isActive()).isFalse();
     }
 
     @Test
@@ -28,7 +28,7 @@ class AccountTest {
 
         //then
         assertTrue(newAccount.isActive());
-        assertThat(newAccount.isActive(), equalTo(true));
+        assertThat(newAccount.isActive()).isTrue();
     }
 
     @Test
@@ -42,7 +42,7 @@ class AccountTest {
 
         //then
         assertNull(address);
-        assertThat(address, nullValue());
+        assertThat(address).isNull();
     }
 
     @Test
@@ -51,15 +51,14 @@ class AccountTest {
         //given
         Address address = new Address("Krakowska", "61c");
         Account account = new Account();
-//        account.setDefaultDeliveryAddress(address);
+        account.setDefaultDeliveryAddress(address);
 
         //when
         Address defaultAddress = account.getDefaultDeliveryAddress();
 
         //then
         assertNotNull(defaultAddress);
-        assertThat(defaultAddress,is(notNullValue()));
-
+        assertThat(defaultAddress).isNotNull();
     }
 
     @Test
@@ -70,10 +69,7 @@ class AccountTest {
 
         //then
         assertFalse(newAccount.isActive());
-
-        assertThat(newAccount.isActive(), equalTo(false));
-        assertThat(newAccount.isActive(), is(false));
-
+        assertThat(newAccount.isActive()).isFalse();
     }
 
 }
