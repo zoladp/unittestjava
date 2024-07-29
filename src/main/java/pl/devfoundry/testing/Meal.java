@@ -20,17 +20,23 @@ public class Meal {
     }
 
     public int getDiscountedPrice(int discount) {
+        if(discount>this.price) {
+            throw new IllegalArgumentException("Discount cannot be higher that the price!");
+        }
         return this.price - discount;
     }
 
     @Override
     public boolean equals(Object o) {
-        if(this == o) return true;
-        if(o == null || getClass() != o.getClass()) return false;
+        if(this == o)
+            return true;
+        if(o == null || getClass() != o.getClass())
+            return false;
 
         Meal meal = (Meal) o;
 
-        if(this.price != meal.price) return false;
+        if(this.price != meal.price)
+            return false;
         return Objects.equals(name, meal.name);
     }
 
