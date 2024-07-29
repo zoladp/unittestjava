@@ -1,5 +1,7 @@
 package pl.devfoundry.testing;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -11,8 +13,24 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class OrderTest {
 
+    private Order order;
+
+    @BeforeEach
+    void initializaOrder() {
+        System.out.println("Inside @BeforeEach method");
+        order = new Order();
+    }
+
+    @AfterEach
+    void cleanUp() {
+        System.out.println("Inside @AfterEach method\n");
+        order.cancel();
+    }
+
+
     @Test
     void testAssertArrayEquals() {
+        System.out.println("Inside test testAssertArrayEquals");
         //given
         int[] ints1 = {1,2,3};
         int[] ints2 = {1,2,3};
@@ -23,9 +41,8 @@ class OrderTest {
 
     @Test
     void mealListShouldBeEmptyAfterCreationOfOrder() {
-
+        System.out.println("Inside test mealListShouldBeEmptyAfterCreationOfOrder");
         //given
-        Order order = new Order();
 
         //then
         assertThat(order.getMeals(), empty());
@@ -36,11 +53,10 @@ class OrderTest {
 
     @Test
     void addingMealToOrderShouldIncreaseOrderSize() {
-
+        System.out.println("Inside test addingMealToOrderShouldIncreaseOrderSize");
         //given
         Meal meal = new Meal(15,"Burger");
         Meal meal2 = new Meal(5,"Sandwich");
-        Order order = new Order();
 
         //when
         order.addMealToOrder(meal);
@@ -54,10 +70,9 @@ class OrderTest {
 
     @Test
     void removingMealFromOrderShouldDecreaseOrderSize() {
-
+        System.out.println("Inside test removingMealFromOrderShouldDecreaseOrderSize");
         //given
         Meal meal = new Meal(15,"Burger");
-        Order order = new Order();
 
         //when
         order.addMealToOrder(meal);
@@ -70,11 +85,10 @@ class OrderTest {
 
     @Test
     void mealsShouldBeInCorrectOrderAfterAddingThemToOrder() {
-
+        System.out.println("Inside test mealsShouldBeInCorrectOrderAfterAddingThemToOrder");
         //given
         Meal meal1 = new Meal(15,"Burger");
         Meal meal2 = new Meal(5,"Sandwich");
-        Order order = new Order();
 
         //when
         order.addMealToOrder(meal1);
@@ -87,6 +101,7 @@ class OrderTest {
 
     @Test
     void testIfTwoMealListsAreTheSame() {
+        System.out.println("Inside test testIfTwoMealListsAreTheSame");
         //given
         Meal meal1 = new Meal(15,"Burger");
         Meal meal2 = new Meal(5,"Sandwich");
