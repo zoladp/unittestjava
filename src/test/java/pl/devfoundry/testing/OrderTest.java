@@ -16,7 +16,7 @@ class OrderTest {
     private Order order;
 
     @BeforeEach
-    void initializaOrder() {
+    void initializeOrder() {
         System.out.println("Inside @BeforeEach method");
         order = new Order();
     }
@@ -30,7 +30,6 @@ class OrderTest {
 
     @Test
     void testAssertArrayEquals() {
-        System.out.println("Inside test testAssertArrayEquals");
         //given
         int[] ints1 = {1,2,3};
         int[] ints2 = {1,2,3};
@@ -41,7 +40,6 @@ class OrderTest {
 
     @Test
     void mealListShouldBeEmptyAfterCreationOfOrder() {
-        System.out.println("Inside test mealListShouldBeEmptyAfterCreationOfOrder");
         //given
 
         //then
@@ -53,7 +51,6 @@ class OrderTest {
 
     @Test
     void addingMealToOrderShouldIncreaseOrderSize() {
-        System.out.println("Inside test addingMealToOrderShouldIncreaseOrderSize");
         //given
         Meal meal = new Meal(15,"Burger");
         Meal meal2 = new Meal(5,"Sandwich");
@@ -70,7 +67,6 @@ class OrderTest {
 
     @Test
     void removingMealFromOrderShouldDecreaseOrderSize() {
-        System.out.println("Inside test removingMealFromOrderShouldDecreaseOrderSize");
         //given
         Meal meal = new Meal(15,"Burger");
 
@@ -85,7 +81,6 @@ class OrderTest {
 
     @Test
     void mealsShouldBeInCorrectOrderAfterAddingThemToOrder() {
-        System.out.println("Inside test mealsShouldBeInCorrectOrderAfterAddingThemToOrder");
         //given
         Meal meal1 = new Meal(15,"Burger");
         Meal meal2 = new Meal(5,"Sandwich");
@@ -101,7 +96,6 @@ class OrderTest {
 
     @Test
     void testIfTwoMealListsAreTheSame() {
-        System.out.println("Inside test testIfTwoMealListsAreTheSame");
         //given
         Meal meal1 = new Meal(15,"Burger");
         Meal meal2 = new Meal(5,"Sandwich");

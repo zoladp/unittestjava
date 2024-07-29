@@ -1,0 +1,1 @@
+New order: Order{meals=[Meal{name='Fries', price=7}, Meal{name='Burger', price=17}, Meal{name='Sandwich', price=5}]} backed up.
