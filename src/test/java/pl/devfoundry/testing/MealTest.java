@@ -1,13 +1,16 @@
 package pl.devfoundry.testing;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
+@DisplayName("Test cases for Meals")
 class MealTest {
 
     @Test
+    @DisplayName("Test if discount price is returned")
     void shouldReturnDiscountedPrice() {
         //given
         Meal meal = new Meal(35);
@@ -56,15 +59,16 @@ class MealTest {
         assertThat(meal1).isEqualTo(meal2);
     }
 
+    @DisplayName("Test checks if assert will throw when discount is lower that actual price")
     @Test
     void exceptionShouldBeThrownIfDiscountIsHigherThanThePrice() {
 
         //given
-        Meal meal = new Meal(8,"Soup");
+        Meal meal = new Meal(4,"Soup");
 
         //when
         //then
-        assertThrows(IllegalArgumentException.class, () -> meal.getDiscountedPrice(4));
+        assertThrows(IllegalArgumentException.class, () -> meal.getDiscountedPrice(5));
     }
 
 

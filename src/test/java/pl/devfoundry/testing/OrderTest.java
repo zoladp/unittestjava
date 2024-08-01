@@ -2,6 +2,7 @@ package pl.devfoundry.testing;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -11,6 +12,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+@DisplayName("Test cases for Order")
 class OrderTest {
 
     private Order order;
@@ -38,6 +40,7 @@ class OrderTest {
         assertArrayEquals(ints1,ints2);
     }
 
+    @DisplayName("Test if no meals after creation an order")
     @Test
     void mealListShouldBeEmptyAfterCreationOfOrder() {
         //given

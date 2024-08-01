@@ -4,6 +4,7 @@ import org.junit.jupiter.api.*;
 
 import java.io.IOException;
 
+@DisplayName("Test cases for Order backup")
 class OrderBackupTest {
 
     private static OrderBackup orderBackup;
@@ -24,6 +25,7 @@ class OrderBackupTest {
         orderBackup.getWriter().append(" backed up.");
     }
 
+    @DisplayName("Test backup order with one meal")
     @Test
     void backupOrderWithOneMeal() throws IOException {
         //given
