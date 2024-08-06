@@ -24,7 +24,8 @@ class CartTest {
 
         //when
         //then
-        assertTimeout(Duration.ofMillis(14), cart::simulateLargeOrder); //sprawdzamy czy metoda wykona sie w czasie mniejszym niz 14 milisekund
+        assertTimeout(Duration.ofMillis(14), cart::simulateLargeOrder);
+        //sprawdzamy czy metoda wykona sie w czasie mniejszym niz 14 milisekund
     }
 
     @Test

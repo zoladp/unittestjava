@@ -4,6 +4,7 @@ import org.junit.jupiter.api.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.assumingThat;
 
 @DisplayName("Test cases for Account")
 class AccountTest {
@@ -71,6 +72,22 @@ class AccountTest {
         //then
         assertFalse(newAccount.isActive());
         assertThat(newAccount.isActive()).isFalse();
+    }
+
+    @RepeatedTest(5)
+    void newAccountWithNotNullAddressShouldBeActive() {
+
+        //given
+        Address address = new Address("Puławska","46/6");
+
+        //when
+        Account account = new Account(address);
+
+        //then
+        assumingThat(address != null, () -> {
+            assertTrue(account.isActive());
+        });
+
     }
 
 }
