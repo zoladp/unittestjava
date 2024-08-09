@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class Meal {
     private int price;
+    private int quantity;
     private String name;
 
     public Meal(int price) {
@@ -15,12 +16,22 @@ public class Meal {
         this.name = name;
     }
 
+    public Meal(int price, int quantity, String name) {
+        this.price = price;
+        this.quantity = quantity;
+        this.name = name;
+    }
+
     public int getPrice() {
         return price;
     }
 
+    public int getQuantity() { return quantity; }
+
+    public String getName() { return this.name; }
+
     public int getDiscountedPrice(int discount) {
-        if(discount>this.price) {
+        if(discount > this.price) {
             throw new IllegalArgumentException("Discount cannot be higher that the price!");
         }
         return this.price - discount;
