@@ -11,12 +11,12 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-@Disabled //wszystkie testy beda ignorowane
+//@Disabled //wszystkie testy beda ignorowane
 @DisplayName("Test cases for Cart")
 class CartTest {
 
     @Test
-    @Disabled //tylko ten test bedzie ignorowany
+    //@Disabled //tylko ten test bedzie ignorowany
     @DisplayName("Cart is able process 1000 orders in 14 miliseconds")
     void simulateLargeOrder() {
         //given
