@@ -1,8 +1,11 @@
-package pl.devfoundry.testing;
+package pl.devfoundry.testing.section3;
 
+import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.assumingThat;
 
@@ -65,6 +68,16 @@ class AccountTest {
     }
 
     @Test
+    void whenDeliveryAddressIsNullAccountIsInactive() {
+
+        //given
+        Account account = new Account(null);
+
+        //then
+        assertFalse(account.isActive());
+    }
+
+    @Test
     void newlyCreatedAccountShouldNotBeActive() {
 
         //given
@@ -89,6 +102,29 @@ class AccountTest {
             assertTrue(account.isActive());
         });
 
+    }
+
+    @Test
+    void invalidEmailShouldThrowException() {
+        //given
+        Account account = new Account();
+
+        //when
+        //then
+        assertThrows(IllegalArgumentException.class, () -> account.setEmail("wrong email"));
+    }
+
+    @Test
+    void validEmailShouldBeSet() {
+
+        //given
+        Account account = new Account();
+
+        //when
+        account.setEmail("kontakt@strona.pl");
+
+        //then
+        MatcherAssert.assertThat(account.getEmail(), is("kontakt@strona.pl"));
     }
 
 }

@@ -1,4 +1,4 @@
-package pl.devfoundry.testing;
+package pl.devfoundry.testing.section3;
 
 import org.junit.jupiter.api.*;
 
@@ -30,7 +30,7 @@ class OrderBackupTest {
     @Test
     void backupOrderWithOneMeal() throws IOException {
         //given
-        Meal meal1 = new Meal(7,"Fries");
+        Meal meal1 = new Meal(7, "Fries");
         Meal meal2 = new Meal(17,"Burger");
         Meal meal3 = new Meal(5,"Sandwich");
         Order order = new Order();

@@ -35,7 +35,7 @@ class CoordinatesTest {
         Coordinates coordinates = new Coordinates(10,10);
 
         //when
-        Coordinates copy = new Coordinates(0,0);
+        Coordinates copy = new Coordinates(10,10);
 
         //then
         assertThat(copy,not(sameInstance(coordinates)));

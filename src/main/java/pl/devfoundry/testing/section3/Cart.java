@@ -1,4 +1,4 @@
-package pl.devfoundry.testing;
+package pl.devfoundry.testing.section3;
 
 import java.util.ArrayList;
 import java.util.List;

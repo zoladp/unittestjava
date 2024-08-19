@@ -1,6 +1,6 @@
-package pl.devfoundry.testing;
+package pl.devfoundry.testing.section3;
 
-import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -24,7 +24,7 @@ class CartTest {
 
         //when
         //then
-        assertTimeout(Duration.ofMillis(14), cart::simulateLargeOrder);
+        Assertions.assertTimeout(Duration.ofMillis(14), cart::simulateLargeOrder);
         //sprawdzamy czy metoda wykona sie w czasie mniejszym niz 14 milisekund
     }
 
